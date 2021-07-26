@@ -75,20 +75,11 @@ class Main extends Luriuker implements Listener{
 	$this->getLogger()->debug("Criando sessão de jogadores");
 	$login = $packet->clientData["DeviceOS"];
 	$devicer = array("Uɴᴋɴᴏᴡɴ", "Aɴᴅʀᴏɪᴅ", "ɪOS", "ᴍᴀᴄOS", "FɪʀᴇOS", "GᴇᴀʀVR", "HᴏʟᴏLᴇɴꜱ", "Wɪɴᴅᴏᴡꜱ_10", "Wɪɴᴅᴏᴡꜱ", "Dᴇᴅɪᴄᴀᴛᴇᴅ", "Oʀʙɪꜱ", "Nx", "Pʟᴀʏꜱᴛᴀᴛɪᴏɴ_4", "Mᴀᴄ", "Wɪɴᴅᴏᴡꜱ_32 Eᴅᴜᴄᴀʟ_ᴠᴇʀꜱɪᴏɴ");
-	$this->setDevice[$packet->username] = ["OS" => $devicer[$login]];
+	$this->getDevice[$packet->username] = ["OS" => $devicer[$login]];
 		}
    //return true;
 	} 
-    public function getDevice(): string {
-		return $this->device;
-	}
-
-	/**
-	 * @param string $device
-	 */
-	public function setDevice(string $device): void {
-		$this->device = $device;
-	}
+    
     //Tag Player
    public function giveTag($player) : void{
 	$player->setNameTagVisible();
