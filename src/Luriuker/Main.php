@@ -12,7 +12,9 @@ use pocketmine\{Server, Player};
 use pocketmine\event\{Event, Listener};
 use pocketmine\event\player\{PlayerInteractEvent, PlayerJoinEvent, PlayerItemHeldEvent, 
 PlayerChatEvent, PlayerRespawnEvent, PlayerQuitEvent, PlayerDeathEvent, PlayerLoginEvent};
-//Level
+use pocketmine\network\mcpe\protocol\types\DeviceOS;
+use pocketmine\network\mcpe\protocol\types\InputMode;
+//level
 use pocketmine\level\Level;
 use pocketmine\math\Vector2;
 use pocketmine\math\Vector3;
@@ -31,6 +33,7 @@ EntitySpawnEvent, EntityRegainHealthEvent};
 class Main extends Luriuker implements Listener{
    
    public $devicer = [];
+   public $device;
    
    public function onEnable(){
       $this->getServer()->getPluginManager()->registerEvents($this, $this);
@@ -75,7 +78,7 @@ class Main extends Luriuker implements Listener{
 	$this->getLogger()->debug("Criando sessão de jogadores");
 	$login = $packet->clientData["DeviceOS"];
 	$devicer = array("Uɴᴋɴᴏᴡɴ", "Aɴᴅʀᴏɪᴅ", "ɪOS", "ᴍᴀᴄOS", "FɪʀᴇOS", "GᴇᴀʀVR", "HᴏʟᴏLᴇɴꜱ", "Wɪɴᴅᴏᴡꜱ_10", "Wɪɴᴅᴏᴡꜱ", "Dᴇᴅɪᴄᴀᴛᴇᴅ", "Oʀʙɪꜱ", "Nx", "Pʟᴀʏꜱᴛᴀᴛɪᴏɴ_4", "Mᴀᴄ", "Wɪɴᴅᴏᴡꜱ_32 Eᴅᴜᴄᴀʟ_ᴠᴇʀꜱɪᴏɴ");
-	$this->getDevice[$packet->username] = ["OS" => $devicer[$login]];
+	$this->device[$packet->username] = ["OS" => $devicer[$login]];
 		}
    //return true;
 	} 
