@@ -83,14 +83,14 @@ class Main extends Luriuker implements Listener{
 
    public function onEntityRegainHealth(EntityRegainHealthEvent $event) : void {
         if($event->getEntity() instanceof Player) {
-        $pl = $event->getPlayer();
+        $pl = $event->getEntity();
         $this->giveTag($pl); 
        }
     }
    
    public function onDamage(EntityDamageByEntityEvent $event) {
 	if($event->getEntity() instanceof Player) {
-        $pl = $event->getPlayer();
+        $pl = $event->getEntity();
         $this->giveTag($pl);
        } 
      }
@@ -100,7 +100,7 @@ class Main extends Luriuker implements Listener{
       if(in_array($event->getCause(),array(EntityDamageEvent::CAUSE_FIRE,EntityDamageEvent::CAUSE_FIRE_TICK,EntityDamageEvent::CAUSE_LAVA))) {
         $event->setCancelled();
       }
-        $pl = $event->getPlayer();
+        $pl = $event->getEntity();
         $this->giveTag($pl);
     }
   }
