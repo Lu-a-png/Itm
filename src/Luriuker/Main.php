@@ -94,7 +94,7 @@ class Main extends Luriuker implements Listener{
         $this->giveTag($pl);
        } 
      }
-
+   //Anti-fire
    public function onEntityDamage(EntityDamageEvent $event) {
     if($event->getEntity() instanceof Player) {
       if(in_array($event->getCause(),array(EntityDamageEvent::CAUSE_FIRE,EntityDamageEvent::CAUSE_FIRE_TICK,EntityDamageEvent::CAUSE_LAVA))) {
