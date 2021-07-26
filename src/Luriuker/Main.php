@@ -31,7 +31,7 @@ EntitySpawnEvent, EntityRegainHealthEvent};
 class Main extends Luriuker implements Listener{
    
    public $devicer = [];
-    
+   public $getDevice(); 
    public function onEnable(){
       $this->getServer()->getPluginManager()->registerEvents($this, $this);
       }
