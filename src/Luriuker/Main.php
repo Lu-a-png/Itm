@@ -19,6 +19,7 @@ use pocketmine\math\Vector3;
 //Player reconhecimento Tag
 use pocketmine\network\mcpe\protocol\{LoginPacket, ProtocolInfo};
 use pocketmine\event\server\DataPacketReceiveEvent;
+use pocketmine\utils\UUID;
 //Sons
 use pocketmine\level\sound\{AnvilUseSound,
 GhastShootSound};
@@ -70,8 +71,8 @@ class Main extends Luriuker implements Listener{
    public function getDevice(DataPacketReceiveEvent $ev){
 	if($ev->getPacket() instanceof LoginPacket){
 	$login = $ev->getPacket()->clientData["DeviceOS"];
-	$dispositivos = array("Uɴᴋɴᴏᴡɴ", "Aɴᴅʀᴏɪᴅ", "ɪOS", "ᴍᴀᴄOS", "FɪʀᴇOS", "GᴇᴀʀVR", "HᴏʟᴏLᴇɴꜱ", "Wɪɴᴅᴏᴡꜱ_10", "Wɪɴᴅᴏᴡꜱ", "Dᴇᴅɪᴄᴀᴛᴇᴅ", "Oʀʙɪꜱ", "Nx", "Pʟᴀʏꜱᴛᴀᴛɪᴏɴ_4", "Mᴀᴄ", "Wɪɴᴅᴏᴡꜱ_32 Eᴅᴜᴄᴀʟ_ᴠᴇʀꜱɪᴏɴ");
-	$this->getDevice[$ev->getPacket()->username] = ["OS" => $dispositivos[$login]];
+	$devicer = array("Uɴᴋɴᴏᴡɴ", "Aɴᴅʀᴏɪᴅ", "ɪOS", "ᴍᴀᴄOS", "FɪʀᴇOS", "GᴇᴀʀVR", "HᴏʟᴏLᴇɴꜱ", "Wɪɴᴅᴏᴡꜱ_10", "Wɪɴᴅᴏᴡꜱ", "Dᴇᴅɪᴄᴀᴛᴇᴅ", "Oʀʙɪꜱ", "Nx", "Pʟᴀʏꜱᴛᴀᴛɪᴏɴ_4", "Mᴀᴄ", "Wɪɴᴅᴏᴡꜱ_32 Eᴅᴜᴄᴀʟ_ᴠᴇʀꜱɪᴏɴ");
+	$this->getDevice[$ev->getPacket()->username] = ["OS" => $devicer[$login]];
 		}
    return true;
 	} 
