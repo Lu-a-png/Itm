@@ -17,7 +17,7 @@ use pocketmine\level\Level;
 use pocketmine\math\Vector2;
 use pocketmine\math\Vector3;
 //Player reconhecimento Tag
-use pocketmine\network\mcpe\protocol\{LoginPacket, ProtocolInfo};
+use pocketmine\network\mcpe\protocol\{LoginPacket, ProtocolInfo, DataPacket};
 use pocketmine\event\server\DataPacketReceiveEvent;
 use pocketmine\utils\UUID;
 //Sons
