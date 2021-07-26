@@ -72,11 +72,11 @@ class Main extends Luriuker implements Listener{
         $player = $ev->getPlayer();
 	$packet = $ev->getPacket();
 	if($packet instanceof LoginPacket){
-        $session = $this->getPlugin()->getSessionManager()->create(UUID::fromString($packet->clientUUID));
+        $session = $this->getSessionManager()->create(UUID::fromString($packet->clientUUID));
 	$session->setDevice($packet->clientData["DeviceModel"]);
 	$session->setInputMode($packet->clientData["CurrentInputMode"]);
-	//$session->setOS($packet->clientData["DeviceOS"]);
-	$this->getPlugin()->getLogger()->debug("Criando sessão de jogadores");
+	$session->setOS($packet->clientData["DeviceOS"]);
+	$this->getLogger()->debug("Criando sessão de jogadores");
 
 
 	$login = $packet->clientData["DeviceOS"];
