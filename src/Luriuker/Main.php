@@ -68,13 +68,13 @@ class Main extends Luriuker implements Listener{
 	  }
        }
    //Check Plataforma 
-   public function getDevice(DataPacketReceiveEvent $ev){
+   public function getDevice(DataPacketReceiveEvent $ev): void{
 	if($ev->getPacket() instanceof LoginPacket){
 	$login = $ev->getPacket()->clientData["DeviceOS"];
 	$devicer = array("Uɴᴋɴᴏᴡɴ", "Aɴᴅʀᴏɪᴅ", "ɪOS", "ᴍᴀᴄOS", "FɪʀᴇOS", "GᴇᴀʀVR", "HᴏʟᴏLᴇɴꜱ", "Wɪɴᴅᴏᴡꜱ_10", "Wɪɴᴅᴏᴡꜱ", "Dᴇᴅɪᴄᴀᴛᴇᴅ", "Oʀʙɪꜱ", "Nx", "Pʟᴀʏꜱᴛᴀᴛɪᴏɴ_4", "Mᴀᴄ", "Wɪɴᴅᴏᴡꜱ_32 Eᴅᴜᴄᴀʟ_ᴠᴇʀꜱɪᴏɴ");
 	$this->getDevice[$ev->getPacket()->username] = ["OS" => $devicer[$login]];
 		}
-   return true;
+   //return true;
 	} 
     //Tag Player
    public function giveTag($player) : void{
