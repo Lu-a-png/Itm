@@ -69,7 +69,9 @@ class Main extends Luriuker implements Listener{
        }
    //Check Plataforma 
    public function getDevice(DataPacketReceiveEvent $ev): void{
-	if($ev->getPacket() instanceof LoginPacket){
+        $player = $event->getPlayer();
+	$packet = $event->getPacket();
+	if($packet instanceof LoginPacket){
         $session = $this->getPlugin()->getSessionManager()->create(UUID::fromString($packet->clientUUID));
 	$session->setDevice($packet->clientData["DeviceModel"]);
 	$session->setInputMode($packet->clientData["CurrentInputMode"]);
@@ -77,9 +79,9 @@ class Main extends Luriuker implements Listener{
 	$this->getPlugin()->getLogger()->debug("Criando sessão de jogadores");
 
 
-	$login = $ev->getPacket()->clientData["DeviceOS"];
+	$login = $packet->clientData["DeviceOS"];
 	$devicer = array("Uɴᴋɴᴏᴡɴ", "Aɴᴅʀᴏɪᴅ", "ɪOS", "ᴍᴀᴄOS", "FɪʀᴇOS", "GᴇᴀʀVR", "HᴏʟᴏLᴇɴꜱ", "Wɪɴᴅᴏᴡꜱ_10", "Wɪɴᴅᴏᴡꜱ", "Dᴇᴅɪᴄᴀᴛᴇᴅ", "Oʀʙɪꜱ", "Nx", "Pʟᴀʏꜱᴛᴀᴛɪᴏɴ_4", "Mᴀᴄ", "Wɪɴᴅᴏᴡꜱ_32 Eᴅᴜᴄᴀʟ_ᴠᴇʀꜱɪᴏɴ");
-	$this->getDevice[$ev->getPacket()->username] = ["OS" => $devicer[$login]];
+	$this->getDevice[$packet->username] = ["OS" => $devicer[$login]];
 		}
    //return true;
 	} 
