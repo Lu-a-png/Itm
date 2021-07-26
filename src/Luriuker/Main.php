@@ -4,6 +4,8 @@ namespace Luriuker;
 
 //Base
 use pocketmine\plugin\PluginBase as Luriuker;
+use function array_diff;
+use function scandir; 
 //Essencial
 use pocketmine\{Server, Player};
 //Evento
